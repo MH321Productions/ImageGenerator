@@ -5,35 +5,25 @@ project(image-generator LANGUAGES CXX)
 include_directories(src)
 include_directories(include)
 
-#Subdirectories allgemein
-add_subdirectory(lib/stb)
-include_directories(lib/stb/include)
-
-#Subdirectories Plattformabhängig
-if(WIN32)
-else()
-endif()
+#Subdirectories
+include_directories(lib/stb)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_COMPILER g++)
 
-#Wenn Der Build im Debug-Modus ist
-if(CMAKE_BUILD_TYPE MATCHES RelWithDebInfo)
-endif()
-
-#Unterlibraries
+#Libraries
 
 list(APPEND libs
 )
 
-#Externe Libraries
+#External Libraries
 if (WIN32)
     set(CMAKE_BUILD_TYPE Release)
 	set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
 else()
 endif()
 
-#Hauptprogramm
+#Main program
 add_executable(Program src/Main.cpp)
 set_target_properties(Program PROPERTIES OUTPUT_NAME "imgen")
 
