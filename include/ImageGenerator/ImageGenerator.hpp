@@ -6,11 +6,12 @@
 using rgb = unsigned char;
 
 class Generator;
+class Renderer;
 
 class GeneratorManager {
     friend class Generator;
     private:
-        rgb* data; //Image data
+        Renderer* renderer;
         int width, height, size; //Image dimensions
         std::string output; //Path to output file
         Generator* gen;
