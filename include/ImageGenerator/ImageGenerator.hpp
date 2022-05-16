@@ -8,6 +8,8 @@ using rgb = unsigned char;
 class Generator;
 class Renderer;
 
+enum class ImageFormat {PNG, JPG, BMP, TGA};
+
 class GeneratorManager {
     friend class Generator;
     private:
@@ -26,7 +28,7 @@ class GeneratorManager {
          */ 
         GeneratorManager(const int& width, const int& height, const std::string& outFile);
 
-        void setGenerator(const Generator& gen);
+        void setGenerator(Generator* gen);
 
         bool generateImage();
 };
