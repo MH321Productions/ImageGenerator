@@ -6,7 +6,8 @@ include_directories(src)
 include_directories(include)
 
 #Subdirectories
-include_directories(lib/stb)
+include_directories(lib/PixelRenderer/lib/stb)
+add_subdirectory(lib/PixelRenderer)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_COMPILER g++)
