@@ -12,8 +12,12 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_COMPILER g++)
 
 #Libraries
+add_library(imgen
+    src/Generator/stbImplementation.cpp
+)
 
 list(APPEND libs
+    imgen
 )
 
 #External Libraries
