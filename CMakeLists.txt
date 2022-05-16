@@ -7,6 +7,9 @@ include_directories(include)
 
 #Subdirectories
 include_directories(lib/PixelRenderer/lib/stb)
+
+# Don't build the PixelRenderer test programs (we don't need them here)
+set(BuildRenderTests OFF CACHE BOOL "Don't build the PixelRenderer Tests")
 add_subdirectory(lib/PixelRenderer)
 
 set(CMAKE_CXX_STANDARD 20)
