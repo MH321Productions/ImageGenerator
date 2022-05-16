@@ -12,7 +12,7 @@ class GeneratorManager {
     friend class Generator;
     private:
         Renderer* renderer;
-        int width, height, size; //Image dimensions
+        int width, height; //Image dimensions
         std::string output; //Path to output file
         Generator* gen;
     
