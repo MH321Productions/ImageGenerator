@@ -1,0 +1,3 @@
+[submodule "lib/PixelRenderer"]
+	path = lib/PixelRenderer
+	url = git@github.com:MH321Productions/PixelRenderer.git
