@@ -1,3 +1,6 @@
 [submodule "lib/PixelRenderer"]
 	path = lib/PixelRenderer
 	url = git@github.com:MH321Productions/PixelRenderer.git
+[submodule "lib/zlib"]
+	path = lib/zlib
+	url = https://github.com/madler/zlib.git
