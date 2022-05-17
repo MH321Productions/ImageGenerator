@@ -8,7 +8,7 @@ using rgb = unsigned char;
 class Generator;
 class Renderer;
 
-enum class ImageFormat {PNG, JPG, BMP, TGA};
+enum ImageFormat : unsigned char {PNG, JPG, BMP, TGA};
 
 class GeneratorManager {
     friend class Generator;
@@ -17,6 +17,7 @@ class GeneratorManager {
         int width, height; //Image dimensions
         std::string output; //Path to output file
         Generator* gen;
+        ImageFormat format;
     
     public:
         /**
@@ -25,8 +26,9 @@ class GeneratorManager {
          * @param width The width in pixel
          * @param height The height in pixel
          * @param outFile The path to the output image
+         * @param format The format of the output image
          */ 
-        GeneratorManager(const int& width, const int& height, const std::string& outFile);
+        GeneratorManager(const int& width, const int& height, const std::string& outFile, ImageFormat format);
 
         void setGenerator(Generator* gen);
 

@@ -6,8 +6,8 @@
 
 using namespace std;
 
-GeneratorManager::GeneratorManager(const int& width, const int& height, const string& outFile)
-    : width(width), height(height), output(outFile), gen(NULL) {
+GeneratorManager::GeneratorManager(const int& width, const int& height, const string& outFile, ImageFormat format)
+    : width(width), height(height), output(outFile), gen(NULL), format(format) {
 
     //Initialize Renderer
     renderer = new Renderer(width, height);
@@ -34,5 +34,29 @@ bool GeneratorManager::generateImage() {
 
     //Saving image
     cout << "Saving image" << endl;
-    
+    int result;
+    switch (format) {
+        case ImageFormat::JPG:
+            result = stbi_write_jpg(output.c_str(), width, height, 4, renderer->getData(), 50);
+            break;
+        case ImageFormat::BMP:
+            result = stbi_write_bmp(output.c_str(), width, height, 4, renderer->getData());
+            break;
+        case ImageFormat::TGA:
+            result = stbi_write_tga(output.c_str(), width, height, 4, renderer->getData());
+            break;
+        
+        //Default output is PNG
+        case ImageFormat::PNG:
+        default:
+            result = stbi_write_png(output.c_str(), width, height, 4, renderer->getData(), width * 4);
+            break;
+    }
+
+    if (!result) {
+        cerr << "Couldn't save image" << endl;
+        return false;
+    }
+
+    return true;
 }
