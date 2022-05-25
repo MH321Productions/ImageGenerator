@@ -14,7 +14,6 @@ GeneratorManager::GeneratorManager(const int& width, const int& height, const st
 }
 
 void GeneratorManager::setGenerator(Generator* gen) {
-    if (this->gen != NULL) delete this->gen; //Deletes an existing generator, if neccessary
     this->gen = gen;
 }
 
