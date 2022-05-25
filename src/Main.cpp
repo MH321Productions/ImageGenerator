@@ -9,7 +9,10 @@ int main(int anzahl, char* args[]) {
 
     //Test
     GeneratorManager man(1920, 1080, "Test.png", PNG);
-    RandomGenerator rand(man, 20);
-    man.setGenerator(&rand);
+    //RandomGenerator rand(man, 20);
+    //man.setGenerator(&rand);
+
+    ColorGenerator color(man);
+    man.setGenerator(&color);
     man.generateImage();
 }
