@@ -7,11 +7,13 @@ include_directories(include)
 
 #Subdirectories
 include_directories(lib/PixelRenderer/lib/stb)
+include_directories(lib/PixelRenderer/include)
+add_subdirectory(lib/zlib)
+include_directories(lib/zlib)
 
 # Don't build the PixelRenderer test programs (we don't need them here)
 set(BuildRenderTests OFF CACHE BOOL "Don't build the PixelRenderer Tests")
 add_subdirectory(lib/PixelRenderer)
-add_subdirectory(lib/zlib)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_COMPILER g++)
@@ -19,10 +21,14 @@ set(CMAKE_CXX_COMPILER g++)
 #Libraries
 add_library(imgen
     src/Generator/stbImplementation.cpp
+    src/Generator/ImageGenerator.cpp
+    src/Generator/RandomGenerator.cpp
 )
 
 list(APPEND libs
     imgen
+    PixelRenderer
+    zlibstatic
 )
 
 #External Libraries
