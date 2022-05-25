@@ -26,6 +26,8 @@ bool GeneratorManager::generateImage() {
     }
 
     cout << "Creating image" << endl;
+    renderer->setColor(Colors::Transparent);
+    renderer->clear();
     if (!gen->generateImage()) {
         //Image creation failed
         cerr << "Creation failed" << endl;
