@@ -8,12 +8,12 @@ using namespace std;
 using namespace chrono;
 
 
-RandomGenerator::RandomGenerator(const GeneratorManager& main, const long& seed, const int& blockSize)
+RandomGenerator::RandomGenerator(GeneratorManager& main, const long& seed, const int& blockSize)
 : Generator(main), seed(seed), blockSize(blockSize) {
     gen.seed(seed);
 }
 
-RandomGenerator::RandomGenerator(const GeneratorManager& main, const int& blockSize)
+RandomGenerator::RandomGenerator(GeneratorManager& main, const int& blockSize)
 : RandomGenerator(main, system_clock::now().time_since_epoch().count(), blockSize) {} //Use standard seed (system time)
 
 

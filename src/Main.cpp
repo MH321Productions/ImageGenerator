@@ -13,6 +13,6 @@ int main(int anzahl, char* args[]) {
     //man.setGenerator(&rand);
 
     ColorGenerator color(man);
-    man.setGenerator(&color);
+    //man.setGenerator(&color);
     man.generateImage();
 }

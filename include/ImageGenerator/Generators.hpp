@@ -14,7 +14,7 @@ class Generator {
         int width, height, size;
     
     public:
-        Generator(const GeneratorManager& main);
+        Generator(GeneratorManager& main);
 
         virtual bool generateImage() = 0;
 };
@@ -36,7 +36,7 @@ class RandomGenerator : public virtual Generator {
          * @param seed The seed for the RNG to use
          * @param blockSize the size of the generated blocks
          */ 
-        RandomGenerator(const GeneratorManager& main, const long& seed, const int& blockSize = 10);
+        RandomGenerator(GeneratorManager& main, const long& seed, const int& blockSize = 10);
 
         /**
          * Initializes a new Random Generator with the standard seed (system time)
@@ -44,7 +44,7 @@ class RandomGenerator : public virtual Generator {
          * @param main The instance of the manager
          * @param blockSize the size of the generated blocks
          */ 
-        RandomGenerator(const GeneratorManager& main, const int& blockSize = 10);
+        RandomGenerator(GeneratorManager& main, const int& blockSize = 10);
 
         virtual bool generateImage();
 };
@@ -62,7 +62,7 @@ class ColorGenerator: public virtual Generator {
          * @param main The instance of the manager
          * @param c The color class to use
          */ 
-        ColorGenerator(const GeneratorManager& main, const Color& c);
+        ColorGenerator(GeneratorManager& main, const Color& c);
 
         /**
          * Initializes a new Color Generator with the given color values for r, g, b and a separated
@@ -72,7 +72,7 @@ class ColorGenerator: public virtual Generator {
          * @param b The blue  value (0-255)
          * @param a The alpha value (0-255) (standard: 255)
          */ 
-        ColorGenerator(const GeneratorManager& main, const rgb& r, const rgb& g, const rgb& b, const rgb& a = 255);
+        ColorGenerator(GeneratorManager& main, const rgb& r, const rgb& g, const rgb& b, const rgb& a = 255);
 
         /**
          * Initializes a new Color Generator with the given color values for r, g, b and a in a single HTML-style value
@@ -80,13 +80,13 @@ class ColorGenerator: public virtual Generator {
          * @param main The instance of the manager
          * @param rgba The color value (0-0xFFFFFFFF)
          */ 
-        ColorGenerator(const GeneratorManager& main, const uint32_t& rgbaColor);
+        ColorGenerator(GeneratorManager& main, const uint32_t& rgbaColor);
 
         /**
          * Initializes a new Color Generator with a randomized color
          * @param main The instance of the manager
          */ 
-        ColorGenerator(const GeneratorManager& main);
+        ColorGenerator(GeneratorManager& main);
 
         virtual bool generateImage();
 };

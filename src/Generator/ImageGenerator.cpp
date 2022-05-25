@@ -63,5 +63,7 @@ bool GeneratorManager::generateImage() {
     return true;
 }
 
-Generator::Generator(const GeneratorManager& main)
-: renderer(main.renderer), width(main.width), height(main.height), size(main.size) {}
+Generator::Generator(GeneratorManager& main)
+: renderer(main.renderer), width(main.width), height(main.height), size(main.size) {
+    main.setGenerator(this);
+}
