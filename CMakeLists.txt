@@ -23,6 +23,7 @@ add_library(imgen
     src/Generator/stbImplementation.cpp
     src/Generator/ImageGenerator.cpp
     src/Generator/RandomGenerator.cpp
+    src/Generator/ColorGenerator.cpp
 )
 
 list(APPEND libs
