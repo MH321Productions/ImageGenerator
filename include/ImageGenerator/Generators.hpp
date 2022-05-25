@@ -91,4 +91,9 @@ class ColorGenerator: public virtual Generator {
         virtual bool generateImage();
 };
 
+class TransparentGenerator: public virtual ColorGenerator {
+    public:
+        TransparentGenerator(GeneratorManager& main): Generator(main), ColorGenerator(main, Colors::Transparent) {}
+};
+
 #endif //GENERATOR_HPP
