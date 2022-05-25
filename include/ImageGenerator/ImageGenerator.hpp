@@ -14,7 +14,7 @@ class GeneratorManager {
     friend class Generator;
     private:
         Renderer* renderer;
-        int width, height; //Image dimensions
+        int width, height, size; //Image dimensions
         std::string output; //Path to output file
         Generator* gen;
         ImageFormat format;

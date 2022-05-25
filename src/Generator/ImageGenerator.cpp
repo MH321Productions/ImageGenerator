@@ -7,7 +7,7 @@
 using namespace std;
 
 GeneratorManager::GeneratorManager(const int& width, const int& height, const string& outFile, ImageFormat format)
-    : width(width), height(height), output(outFile), gen(NULL), format(format) {
+    : width(width), height(height), output(outFile), gen(NULL), format(format), size(width * height) {
 
     //Initialize Renderer
     renderer = new Renderer(width, height);
@@ -60,3 +60,6 @@ bool GeneratorManager::generateImage() {
 
     return true;
 }
+
+Generator::Generator(const GeneratorManager& main)
+: renderer(main.renderer), width(main.width), height(main.height), size(main.size) {}
