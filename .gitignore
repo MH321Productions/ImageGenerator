@@ -34,4 +34,7 @@
 # VS Code directories and internal ones
 .vscode/
 bin/
-lib/zlib/
+*.png
+*.jpg
+*.bmp
+*.tga
