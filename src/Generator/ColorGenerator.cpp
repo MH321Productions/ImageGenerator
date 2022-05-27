@@ -12,7 +12,7 @@ ColorGenerator::ColorGenerator(GeneratorManager& main, const rgb& r, const rgb& 
 : ColorGenerator(main, Color(r, g, b, a)) {}
 
 ColorGenerator::ColorGenerator(GeneratorManager& main, const uint32_t& rgbaColor)
-: ColorGenerator(main, Color((rgb) (rgbaColor & 0xFF000000), rgbaColor & 0xFF0000, rgbaColor & 0xFF00, rgbaColor & 0xFF)) {}
+: ColorGenerator(main, Color(rgbaColor)) {}
 
 ColorGenerator::ColorGenerator(GeneratorManager& main) : Generator(main) {
     mt19937 gen;
