@@ -10,7 +10,7 @@ int main(int anzahl, char* args[]) {
     //Tests
     GeneratorManager man(1920, 1080, "Test.png", PNG);
     //RandomGenerator rand(man, 20);
-    //ColorGenerator color(man);
-    TransparentGenerator trans(man);
+    ColorGenerator color(man, 0xFFFFFFFF);
+    //TransparentGenerator trans(man);
     man.generateImage();
 }
