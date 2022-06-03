@@ -24,6 +24,7 @@ add_library(imgen
     src/Generator/ImageGenerator.cpp
     src/Generator/RandomGenerator.cpp
     src/Generator/ColorGenerator.cpp
+    src/Generator/MandelbrotGenerator.cpp
 )
 
 list(APPEND libs

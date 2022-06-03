@@ -12,6 +12,7 @@ class Generator {
     protected:
         Renderer* renderer;
         int width, height, size;
+        double ratio;
     
     public:
         Generator(GeneratorManager& main);
@@ -91,9 +92,30 @@ class ColorGenerator: public virtual Generator {
         virtual bool generateImage();
 };
 
+/**
+ * Generates a transparent image
+ */ 
 class TransparentGenerator: public virtual ColorGenerator {
     public:
         TransparentGenerator(GeneratorManager& main): Generator(main), ColorGenerator(main, Colors::Transparent) {}
+};
+
+class MandelbrotGenerator: public virtual Generator {
+    private:
+        double posX, posY, cWidth, cHeight;
+        int firstColor, secondColor;
+        bool invert;
+
+        static const unsigned int maxSteps;
+        static const double threshold;
+        static const double midScale, highScale, oneThird, twoThird;
+
+        Color getColor(double& value);
+    
+    public:
+        MandelbrotGenerator(GeneratorManager& main, const double& posX, const double& posY, const double& width, const int& colorMap);
+
+        virtual bool generateImage();
 };
 
 #endif //GENERATOR_HPP
