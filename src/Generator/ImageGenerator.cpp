@@ -63,6 +63,6 @@ bool GeneratorManager::generateImage() {
 }
 
 Generator::Generator(GeneratorManager& main)
-: renderer(main.renderer), width(main.width), height(main.height), size(main.size) {
+: renderer(main.renderer), width(main.width), height(main.height), size(main.size), ratio((double) width / (double) height) {
     main.setGenerator(this);
 }
